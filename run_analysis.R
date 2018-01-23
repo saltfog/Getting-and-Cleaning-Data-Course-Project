@@ -15,16 +15,16 @@ download.file(url, file.path(path, "dataFiles.zip"))
 unzip(zipfile = "dataFiles.zip")
 
 # Load activity labels and features
-activityLabels <- fread(file.path(path, "UCI HAR Dataset/activity_labels.txt")
+actlabels <- fread(file.path(path, "UCI HAR Dataset/activity_labels.txt")
                         , col.names = c("classLabels", "activityName"))
 features <- fread(file.path(path, "UCI HAR Dataset/features.txt")
                   , col.names = c("index", "featureNames"))
-featuresWanted <- grep("(mean|std)\\(\\)", features[, featureNames])
-measurements <- features[featuresWanted, featureNames]
+featuresNeeded <- grep("(mean|std)\\(\\)", features[, featureNames])
+measurements <- features[featuresNeeded, featureNames]
 measurements <- gsub('[()]', '', measurements)
 
 # Load train datasets
-train <- fread(file.path(path, "UCI HAR Dataset/train/X_train.txt"))[, featuresWanted, with = FALSE]
+train <- fread(file.path(path, "UCI HAR Dataset/train/X_train.txt"))[, featuresNeeded, with = FALSE]
 data.table::setnames(train, colnames(train), measurements)
 trainActivities <- fread(file.path(path, "UCI HAR Dataset/train/Y_train.txt")
                        , col.names = c("Activity"))
@@ -33,7 +33,7 @@ trainSubjects <- fread(file.path(path, "UCI HAR Dataset/train/subject_train.txt"
 train <- cbind(trainSubjects, trainActivities, train)
 
 # Load test datasets
-test <- fread(file.path(path, "UCI HAR Dataset/test/X_test.txt"))[, featuresWanted, with = FALSE]
+test <- fread(file.path(path, "UCI HAR Dataset/test/X_test.txt"))[, featuresNeeded, with = FALSE]
 data.table::setnames(test, colnames(test), measurements)
 testActivities <- fread(file.path(path, "UCI HAR Dataset/test/Y_test.txt")
                         , col.names = c("Activity"))
@@ -46,8 +46,8 @@ combined <- rbind(train, test)
 
 # Convert classLabels to activityName basically. More explicit. 
 combined[["Activity"]] <- factor(combined[, Activity]
-                              , levels = activityLabels[["classLabels"]]
-                              , labels = activityLabels[["activityName"]])
+                              , levels = actlabels[["classLabels"]]
+                              , labels = actlabels[["activityName"]])
 
 combined[["SubjectNum"]] <- as.factor(combined[, SubjectNum])
 combined <- reshape2::melt(data = combined, id = c("SubjectNum", "Activity"))

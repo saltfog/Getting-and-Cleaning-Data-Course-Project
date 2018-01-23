@@ -11,10 +11,10 @@ Data Zip File Location: [UC Irvine Repo](https://d396qusza40orc.cloudfront.net/g
 
 ## Review Criteria
 
-Analysis R Script |  run_analysis.R |  [R Script Link](https://github.com/saltfog/Getting-and-Cleaning-Data-Course-Project/run_analysis.R "run_analysis.R")
-Tidy Data Set |  Clean Data Set |  [Data Set Link](https://github.com/saltfog/Getting-and-Cleaning-Data-Course-Project/tidyData.txt "tidyData.txt")
-Github Repo | Repo |  [Repo Link](https://github.com/saltfog/Getting-and-Cleaning-Data-Course-Project "Click to go to Repo")
-Cookbook | CodeBook.md |  [Repo Link]https://github.com/saltfog/Getting-and-Cleaning-Data-Course-Project/CodeBook.md "CodeBook.md")
-README [Repo Link](https://github.com/saltfog/Getting-and-Cleaning-Data-Course-Project/README.md "README.md")
+Analysis R Script |  run_analysis.R |  [R Script Link](https://github.com/saltfog/Getting-and-Cleaning-Data-Course-Project/blob/master/run_analysis.R "run_analysis.R")
+Tidy Data Set |  Clean Data Set |  [Data Set Link](https://github.com/saltfog/Getting-and-Cleaning-Data-Course-Project/blob/master/tidyData.txt "tidyData.txt")
+Github Repo | [Repo Link](https://github.com/saltfog/Getting-and-Cleaning-Data-Course-Project "Click to go to Repo")
+Cookbook | CodeBook.md [Repo Link]https://github.com/saltfog/Getting-and-Cleaning-Data-Course-Project/blob/master/CodeBook.md "CodeBook.md")
+README [Repo Link](https://github.com/saltfog/Getting-and-Cleaning-Data-Course-Project/blob/master/README.md "README.md")
 
 
